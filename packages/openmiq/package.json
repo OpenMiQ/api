@@ -17,13 +17,13 @@
     "api",
     "openmiq"
   ],
-  "homepage": "https://github.com/otnc/OpenMiQ-API/tree/main/packages/openmiq#readme",
+  "homepage": "https://github.com/OpenMiQ/api/tree/main/packages/openmiq#readme",
   "bugs": {
-    "url": "https://github.com/otnc/OpenMiQ-API/issues"
+    "url": "https://github.com/OpenMiQ/api/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/otnc/OpenMiQ-API.git",
+    "url": "git+https://github.com/OpenMiQ/api.git",
     "directory": "packages/openmiq"
   },
   "license": "MIT",

@@ -18,8 +18,8 @@
 ## 1. リポジトリの取得・依存関係のインストール・DB準備
 
 ```bash
-git clone https://github.com/otnc/OpenMiQ-API.git
-cd OpenMiQ-API
+git clone https://github.com/OpenMiQ/api.git
+cd api
 pnpm install
 cp .env.example .env   # このあと値を埋める（§2参照）
 pnpm run db:migrate

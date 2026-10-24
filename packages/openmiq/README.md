@@ -1,6 +1,6 @@
 # @makeitaquote/openmiq
 
-Generate "Make it a Quote" images through the [OpenMiQ-API](https://github.com/otnc/OpenMiQ-API).
+Generate "Make it a Quote" images through the [OpenMiQ-API](https://github.com/OpenMiQ/api).
 
 [![npm](https://img.shields.io/npm/v/@makeitaquote/openmiq)](https://www.npmjs.com/package/@makeitaquote/openmiq) [![License](https://img.shields.io/npm/l/@makeitaquote/openmiq)](LICENSE) [![Node](https://img.shields.io/node/v/@makeitaquote/openmiq)](https://www.npmjs.com/package/@makeitaquote/openmiq)
 
@@ -20,7 +20,7 @@ const image = await new OpenMiQ({
   .toBuffer();
 ```
 
-Both `apiKey` and `baseUrl` are required. OpenMiQ-API is meant to be self-hosted — there's no single official instance this package could default to — so `baseUrl` always has to point at the instance you're actually using, and an API key is issued from that instance's own Web Console (see the [main repo's README](https://github.com/otnc/OpenMiQ-API#readme) for how to get one, or to self-host your own instance).
+Both `apiKey` and `baseUrl` are required. OpenMiQ-API is meant to be self-hosted — there's no single official instance this package could default to — so `baseUrl` always has to point at the instance you're actually using, and an API key is issued from that instance's own Web Console (see the [main repo's README](https://github.com/OpenMiQ/api#readme) for how to get one, or to self-host your own instance).
 
 ## Install
 
@@ -91,4 +91,4 @@ otoneko. https://github.com/otnc
 
 ## License
 
-MIT — see [LICENSE](./LICENSE). This is a thin HTTP client and contains no code from OpenMiQ itself; whatever OpenMiQ-API instance you point `baseUrl` at is a separate deployment, licensed under AGPL-3.0-or-later with additional terms (see the [main repo](https://github.com/otnc/OpenMiQ-API)).
+MIT — see [LICENSE](./LICENSE). This is a thin HTTP client and contains no code from OpenMiQ itself; whatever OpenMiQ-API instance you point `baseUrl` at is a separate deployment, licensed under AGPL-3.0-or-later with additional terms (see the [main repo](https://github.com/OpenMiQ/api)).

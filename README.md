@@ -12,7 +12,7 @@
 
 _[日本語](./README-ja.md)_
 
-A self-hosted **Web API** that turns a message into a quote image over HTTP. Based on [OpenMiQ](https://github.com/otnc/OpenMiQ) (a Discord bot), with modifications for a Web API — see [Credits](#credits).
+A self-hosted **Web API** that turns a message into a quote image over HTTP. Based on [OpenMiQ](https://github.com/OpenMiQ/discord-bot) (a Discord bot), with modifications for a Web API — see [Credits](#credits).
 
 ## What's different from the Discord bot version
 
@@ -33,8 +33,8 @@ A self-hosted **Web API** that turns a message into a quote image over HTTP. Bas
 ### Quick start
 
 ```bash
-git clone https://github.com/otnc/OpenMiQ-API.git
-cd OpenMiQ-API
+git clone https://github.com/OpenMiQ/api.git
+cd api
 pnpm install
 cp .env.example .env   # fill in the values, see Configuration below
 pnpm run db:migrate    # applies the SQLite schema
@@ -133,8 +133,8 @@ otoneko. https://github.com/otnc
 
 ## Credits
 
-- **OpenMiQ** — https://github.com/otnc/OpenMiQ — this API is based on OpenMiQ (a Discord bot) by **otoneko.**, with modifications to expose it as a Web API.
-- **makeitaquote** — https://github.com/otnc/makeitaquote — the library this API renders images with.
+- **OpenMiQ** — https://github.com/OpenMiQ/discord-bot — this API is based on OpenMiQ (a Discord bot) by **otoneko.**, with modifications to expose it as a Web API.
+- **makeitaquote** — https://github.com/OpenMiQ/makeitaquote — the library this API renders images with.
 - Make it a Quote (Twitter) — https://twitter.com/MakeItAQuote
 - Make it a Quote (Discord/Misskey/Bluesky) — https://miq.moe/
 - Icon/Logo: used with permission of their original author (also the author of OpenMiQ) — see [ADDITIONAL_TERMS.md](./ADDITIONAL_TERMS.md#4-brand-assets-githubassets).
@@ -144,7 +144,7 @@ otoneko. https://github.com/otnc
 This project is licensed under the [GNU Affero General Public License v3.0 or later](./LICENSE), carrying forward the [additional terms](./ADDITIONAL_TERMS.md) OpenMiQ itself is licensed under (AGPL-3.0 Section 7) — preserved here, unmodified, since this API is a modified version of that software.
 
 - **SPDX:** `AGPL-3.0-or-later` (with additional terms under AGPL-3.0 Section 7)
-- If you distribute or run a modified version of _this_ API, the same additional terms require you to make your modified source available under AGPL-3.0 and to display attribution to OpenMiQ (original repository URL: https://github.com/otnc/OpenMiQ) as described in [ADDITIONAL_TERMS.md](./ADDITIONAL_TERMS.md).
+- If you distribute or run a modified version of _this_ API, the same additional terms require you to make your modified source available under AGPL-3.0 and to display attribution to OpenMiQ (original repository URL: https://github.com/OpenMiQ/discord-bot) as described in [ADDITIONAL_TERMS.md](./ADDITIONAL_TERMS.md).
 
 ## Client library
 

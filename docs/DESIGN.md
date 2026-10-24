@@ -4,11 +4,11 @@
 
 ## 0. 前提・参照元
 
-- 参照元: [github.com/otnc/OpenMiQ](https://github.com/otnc/OpenMiQ)（Discord用 Make it a Quote Bot。画像生成本体は [`makeitaquote`](https://github.com/otnc/makeitaquote) ライブラリ）
+- 参照元: [github.com/OpenMiQ/discord-bot](https://github.com/OpenMiQ/discord-bot)（Discord用 Make it a Quote Bot。画像生成本体は [`makeitaquote`](https://github.com/OpenMiQ/makeitaquote) ライブラリ）
 - ライセンス: **AGPL-3.0-or-later**（`LICENSE` はそのまま流用）
 - 追加条項: **`ADDITIONAL_TERMS.md`（AGPL §7 に基づく追加条項）もそのまま流用**
   - 帰属表示（ソフトウェア名・原著作者名・元リポジトリURL）を README / about・credits 相当の画面・API レスポンスの3箇所に表示する義務あり
-  - 改変版であることの明示義務（"OpenMiQ" と同一名称を名乗ってはならない → 本プロジェクト名は **`OpenMiQ-api`** とし、README冒頭で "based on OpenMiQ (https://github.com/otnc/OpenMiQ), with modifications" を明記）
+  - 改変版であることの明示義務（"OpenMiQ" と同一名称を名乗ってはならない → 本プロジェクト名は **`OpenMiQ-api`** とし、README冒頭で "based on OpenMiQ (https://github.com/OpenMiQ/discord-bot), with modifications" を明記）
   - 商標非許諾、`.github/assets/` のアイコン・ロゴは無改変利用時のみ使用可（本プロジェクトは著作権者本人の許諾のもと、これらの資産をそのまま `.github/assets/` に同梱する。詳細は §0.1）
   - AGPL §13（ネットワーク利用条項）にも留意: 本プロジェクトはネットワークサービスとして提供するため、Swagger UI・Web管理画面のフッター等に**ソースコード入手先リンク**を常設する
 
@@ -22,10 +22,10 @@
 
 ### 0.0 参考: OpenMiQ-misskey（同一著者による先行の派生プロジェクト）
 
-[github.com/otnc/OpenMiQ-misskey](https://github.com/otnc/OpenMiQ-misskey)（Misskey版MiQ Bot、同じく otoneko. 氏の作）を確認したところ、`LICENSE` / `ADDITIONAL_TERMS.md` は **OpenMiQ本家と一字一句同一**（diff差分なし）だった。README側で以下の型が既に確立されている（本プロジェクトもこれに倣う）:
+[github.com/OpenMiQ/misskey-bot](https://github.com/OpenMiQ/misskey-bot)（Misskey版MiQ Bot、同じく otoneko. 氏の作）を確認したところ、`LICENSE` / `ADDITIONAL_TERMS.md` は **OpenMiQ本家と一字一句同一**（diff差分なし）だった。README側で以下の型が既に確立されている（本プロジェクトもこれに倣う）:
 
-- 冒頭に一文で由来を明記: _"Based on [OpenMiQ](https://github.com/otnc/OpenMiQ) (a Discord bot), with modifications for Misskey — see [Credits](#credits)."_
-  → 本プロジェクトでは: _"Based on [OpenMiQ](https://github.com/otnc/OpenMiQ) (a Discord bot), with modifications for a Web API — see [Credits](#credits)."_
+- 冒頭に一文で由来を明記: _"Based on [OpenMiQ](https://github.com/OpenMiQ/discord-bot) (a Discord bot), with modifications for Misskey — see [Credits](#credits)."_
+  → 本プロジェクトでは: _"Based on [OpenMiQ](https://github.com/OpenMiQ/discord-bot) (a Discord bot), with modifications for a Web API — see [Credits](#credits)."_
 - `## What's different from the Discord version` 節を設け、元がDiscord Bot、派生先が別ドメイン（Misskey／本プロジェクトではWeb API）であることの差分を明示している
 - `## Author` 節（otoneko. へのリンク）
 - `## Credits` 節: OpenMiQ本体・`makeitaquote`ライブラリ・オリジナルのMake it a Quote(Twitter/Discord/Misskey/Bluesky)への言及を列挙
@@ -33,7 +33,7 @@
   > This project is licensed under the [GNU Affero General Public License v3.0 or later](./LICENSE), carrying forward the [additional terms](./ADDITIONAL_TERMS.md) OpenMiQ itself is licensed under (AGPL-3.0 Section 7) — preserved here, unmodified, since this bot is a modified version of that software.
   >
   > - **SPDX:** `AGPL-3.0-or-later` (with additional terms under AGPL-3.0 Section 7)
-  > - If you distribute or run a modified version of _this_ bot, the same additional terms require you to make your modified source available under AGPL-3.0 and to display attribution to OpenMiQ (original repository URL: https://github.com/otnc/OpenMiQ) as described in [ADDITIONAL_TERMS.md](./ADDITIONAL_TERMS.md).
+  > - If you distribute or run a modified version of _this_ bot, the same additional terms require you to make your modified source available under AGPL-3.0 and to display attribution to OpenMiQ (original repository URL: https://github.com/OpenMiQ/discord-bot) as described in [ADDITIONAL_TERMS.md](./ADDITIONAL_TERMS.md).
 - badges: CI / License / Additional Terms / Node version をREADME冒頭に並べるスタイル
 - `## Configuration` 節: 環境変数を Markdown テーブル（`Variable | Purpose`）で列挙するスタイル → 本設計の §11 もこの形式に統一する
 - `## Known vX limitations` 節: 元のDiscord版との機能差・既知の制約を正直に明記するスタイル → 本プロジェクトでも「Botの対話的ボタン編集は無い」「一部コマンドはWeb UIのみ」等の差分をREADMEに明記する
@@ -554,7 +554,7 @@ OpenMiQ-misskeyと同じ構成をWeb API向けに読み替えたテンプレー�
 _[日本語](./README-ja.md)_
 
 A self-hosted **Web API** that turns a message into a quote image over HTTP.
-Based on [OpenMiQ](https://github.com/otnc/OpenMiQ) (a Discord bot), with modifications for a Web API — see [Credits](#credits).
+Based on [OpenMiQ](https://github.com/OpenMiQ/discord-bot) (a Discord bot), with modifications for a Web API — see [Credits](#credits).
 
 ## What's different from the Discord bot version
 - No Discord message / button interaction for generating quotes — quotes are requested via `POST /api/quote` with an API key.
@@ -570,8 +570,8 @@ Based on [OpenMiQ](https://github.com/otnc/OpenMiQ) (a Discord bot), with modifi
 
 ### Quick start
 ```bash
-git clone https://github.com/otnc/OpenMiQ-API.git
-cd OpenMiQ-API
+git clone https://github.com/OpenMiQ/api.git
+cd api
 pnpm install
 cp .env.example .env   # fill in the values, see Configuration below
 pnpm run db:migrate    # applies the SQLite schema
@@ -597,8 +597,8 @@ otoneko. https://github.com/otnc
 （本プロジェクトの実装者: ${使用者名 or GitHubハンドルをここに記載}）
 
 ## Credits
-- **OpenMiQ** — https://github.com/otnc/OpenMiQ — this API is based on OpenMiQ (a Discord bot) by **otoneko.**, with modifications to expose it as a Web API.
-- **makeitaquote** — https://github.com/otnc/makeitaquote — the library this API renders images with.
+- **OpenMiQ** — https://github.com/OpenMiQ/discord-bot — this API is based on OpenMiQ (a Discord bot) by **otoneko.**, with modifications to expose it as a Web API.
+- **makeitaquote** — https://github.com/OpenMiQ/makeitaquote — the library this API renders images with.
 - Make it a Quote (Twitter) — https://twitter.com/MakeItAQuote
 - Make it a Quote (Discord/Misskey/Bluesky) — https://miq.moe/
 - Icon/Logo: used with permission of their original author (also the author of OpenMiQ) — see [ADDITIONAL_TERMS.md](./ADDITIONAL_TERMS.md#4-brand-assets-githubassets).
@@ -607,7 +607,7 @@ otoneko. https://github.com/otnc
 This project is licensed under the [GNU Affero General Public License v3.0 or later](./LICENSE), carrying forward the [additional terms](./ADDITIONAL_TERMS.md) OpenMiQ itself is licensed under (AGPL-3.0 Section 7) — preserved here, unmodified, since this API is a modified version of that software.
 
 - **SPDX:** `AGPL-3.0-or-later` (with additional terms under AGPL-3.0 Section 7)
-- If you distribute or run a modified version of _this_ API, the same additional terms require you to make your modified source available under AGPL-3.0 and to display attribution to OpenMiQ (original repository URL: https://github.com/otnc/OpenMiQ) as described in [ADDITIONAL_TERMS.md](./ADDITIONAL_TERMS.md).
+- If you distribute or run a modified version of _this_ API, the same additional terms require you to make your modified source available under AGPL-3.0 and to display attribution to OpenMiQ (original repository URL: https://github.com/OpenMiQ/discord-bot) as described in [ADDITIONAL_TERMS.md](./ADDITIONAL_TERMS.md).
 
 ## Configuration
 （§11の環境変数テーブルをここに転記。`ICON_PATH`/`LOGO_PATH` は省略すると`GET /api/branding/icon`/`logo`が404になる（本家アセットへの自動フォールバックは無し、§0.1）。`.github/assets/icon.png`/`logo.png`を使いたい場合はこの変数にそのパスを明示的に設定する。別ブランドとして名乗る場合は自分自身の画像に差し替えること — `ADDITIONAL_TERMS.md` §4 により OpenMiQ本家のアイコン・ロゴに手を加えて別ブランドの独自資産として転用することはできない）
@@ -835,8 +835,8 @@ const image = await new OpenMiQ({
 
 同じ著者(otoneko.)が公開している姉妹パッケージ2つの実装を確認し、設計・コーディング規約をそのまま踏襲する:
 
-- **[`@makeitaquote/voids`](https://github.com/otnc/makeitaquote-voids)**（Voids APIのラッパー）
-- **[`@makeitaquote/miqx`](https://github.com/otnc/makeitaquote-miqx)**（MiqX APIのラッパー）
+- **[`@makeitaquote/voids`](https://github.com/OpenMiQ/makeitaquote-voids)**（Voids APIのラッパー）
+- **[`@makeitaquote/miqx`](https://github.com/OpenMiQ/makeitaquote-miqx)**（MiqX APIのラッパー）
 
 両パッケージから読み取れる共通規約:
 
