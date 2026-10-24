@@ -1,6 +1,6 @@
 # 利用規約
 
-OpenMiQ-APIは、OpenMiQ (https://github.com/OpenMiQ/discord-bot) をもとにしたセルフホスト型のクォート画像生成APIであり、GNU Affero General Public License v3.0 or laterおよびADDITIONAL_TERMS.mdに記載の追加条項のもとで提供されます。
+OpenMiQ APIは、OpenMiQ (https://github.com/OpenMiQ/discord-bot) をもとにしたセルフホスト型のクォート画像生成APIであり、GNU Affero General Public License v3.0 or laterおよびADDITIONAL_TERMS.mdに記載の追加条項のもとで提供されます。
 
 APIキーは、Discordアカウントを連携し管理者の承認を得た場合にのみ発行されます。APIキーを第三者と共有すること、不正利用・スパム・違法な目的での利用は禁止します。本規約への違反はAPIキーの即時取消およびBANの対象となります。
 

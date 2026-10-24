@@ -1,6 +1,6 @@
 # Terms of Service
 
-OpenMiQ-API is a self-hosted quote-image generation API, based on OpenMiQ (https://github.com/OpenMiQ/discord-bot) and licensed under the GNU Affero General Public License v3.0 or later, with the additional terms in ADDITIONAL_TERMS.md.
+OpenMiQ API is a self-hosted quote-image generation API, based on OpenMiQ (https://github.com/OpenMiQ/discord-bot) and licensed under the GNU Affero General Public License v3.0 or later, with the additional terms in ADDITIONAL_TERMS.md.
 
 An API key is only issued after linking your Discord account and being approved by an administrator. You must not share your API key with others, and you must not use the service for abuse, spam, or any illegal purpose. Violating these terms may result in immediate API key revocation and a ban.
 

@@ -40,7 +40,7 @@ const response = await fetch(
       Authorization: `Bot ${botToken}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name: "OpenMiQ-API Review" }),
+    body: JSON.stringify({ name: "OpenMiQ API Review" }),
   },
 );
 

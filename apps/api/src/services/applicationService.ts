@@ -237,8 +237,8 @@ export async function notifyReviewResult(
 ): Promise<void> {
   const dmContent =
     action === "approve"
-      ? `Your OpenMiQ-API application has been approved! You can create API keys at ${env.APP_BASE_URL}/console/api-keys.`
-      : `Your OpenMiQ-API application has been denied. You can re-apply after the cooldown period at ${env.APP_BASE_URL}/console/apply.`;
+      ? `Your OpenMiQ API application has been approved! You can create API keys at ${env.APP_BASE_URL}/console/api-keys.`
+      : `Your OpenMiQ API application has been denied. You can re-apply after the cooldown period at ${env.APP_BASE_URL}/console/apply.`;
   await sendDirectMessage(
     env.DISCORD_BOT_TOKEN,
     result.user.discordId,

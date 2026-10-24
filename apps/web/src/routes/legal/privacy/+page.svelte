@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-  <title>{tr.legal.privacyTitle} — OpenMiQ-API</title>
+  <title>{tr.legal.privacyTitle} — OpenMiQ API</title>
 </svelte:head>
 
 <Card.Root class="mx-auto max-w-2xl">

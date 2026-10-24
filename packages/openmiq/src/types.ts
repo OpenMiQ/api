@@ -43,10 +43,10 @@ export interface QuoteInput {
 }
 
 export interface OpenMiQOptions {
-  /** An API key issued from your OpenMiQ-API instance's Web Console. */
+  /** An API key issued from your OpenMiQ API instance's Web Console. */
   apiKey: string;
   /**
-   * The base URL of the OpenMiQ-API instance to talk to, e.g. `"https://miq.example.com"` or `"http://localhost:9413"` for a local instance. Required — OpenMiQ-API is meant to be self-hosted, so this package has no single default host to fall back to.
+   * The base URL of the OpenMiQ API instance to talk to, e.g. `"https://miq.example.com"` or `"http://localhost:9413"` for a local instance. Required — OpenMiQ API is meant to be self-hosted, so this package has no single default host to fall back to.
    */
   baseUrl: string;
   /** Request timeout in ms, default 15000. */

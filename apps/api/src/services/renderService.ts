@@ -20,7 +20,7 @@ function buildTheme(input: QuoteRequest): Record<string, unknown> {
 }
 
 // `watermarkUrl` wins when given (drawn as an image), then the caller's own text `watermark` (even an empty string — an explicit "no watermark").
-// Otherwise the LOGO_PATH image, matching OpenMiQ and OpenMiQ-Misskey's own convention of drawing the configured logo in place of the usual attribution.
+// Otherwise the LOGO_PATH image, matching OpenMiQ and OpenMiQ Misskey's own convention of drawing the configured logo in place of the usual attribution.
 // `undefined` when none of these apply, leaving makeitaquote's own default in place.
 function resolveWatermark(
   input: QuoteRequest,

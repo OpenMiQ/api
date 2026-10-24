@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src=".github/assets/icon.png" width="120" alt="OpenMiQ-API icon">
+<img src=".github/assets/icon.png" width="120" alt="OpenMiQ API icon">
 
 <br />
 
-<img src=".github/assets/logo.png" width="320" alt="OpenMiQ-API logo">
+<img src=".github/assets/logo.png" width="320" alt="OpenMiQ API logo">
 
 </div>
 
@@ -55,7 +55,7 @@ pnpm run dev           # runs apps/api and apps/web together via Turborepo
       curl -X POST "https://discord.com/api/v10/channels/<CHANNEL_ID>/webhooks" \
         -H "Authorization: Bot <DISCORD_BOT_TOKEN>" \
         -H "Content-Type: application/json" \
-        -d '{"name": "OpenMiQ-API Review"}'
+        -d '{"name": "OpenMiQ API Review"}'
       ```
       Put the response's `url` field in `DISCORD_REVIEW_WEBHOOK_URL`. **This step matters**: a webhook created through the Integrations UI is not "application-owned," and Discord silently drops Approve/Deny buttons from every message sent through it — the embed still posts, just with no buttons and no error to indicate why. Only a webhook created by the bot's own API call can carry working interactive buttons ([Discord docs](https://docs.discord.com/developers/resources/webhook)).
    4. Once the webhook exists, the bot's guild membership isn't needed for anything else at runtime — Approve/Deny is handled entirely through the webhook's own token and the Interactions Endpoint from step 4, not the bot.
@@ -114,7 +114,7 @@ Both apps read from a single `.env` at the project root (see `.env.example`) —
 | `PLAYGROUND_RATE_LIMIT_WINDOW_MS` / `PLAYGROUND_RATE_LIMIT_MAX` | A separate, small per-IP-address rate limit that only applies to anonymous (no-API-key) `/playground` requests, on top of `PLAYGROUND_SHARED_KEY_LIMIT`'s total — keeps a single visitor from exhausting that shared allocation for everyone else (default `60000`/`5`) |
 | `APP_BASE_URL` | This service's own public URL, used for the OAuth2 callback and Interactions Endpoint |
 | `RATE_LIMIT_WINDOW_MS` / `RATE_LIMIT_MAX` | Default per-API-key rate limit window (ms) and request cap (default `60000`/`60`) |
-| `ICON_PATH` / `LOGO_PATH` | Local image paths served by `GET /api/branding/icon`/`logo` — a relative path is resolved against the project root, same as `.env` itself. **Unset = 404, on every deployment including the original one** — there's no fallback to the bundled `.github/assets/icon.png`/`logo.png`, since those identify the original OpenMiQ project and author specifically (see [License](#license) for the reuse restrictions on those files). Set these explicitly, even to that same path (`ICON_PATH=.github/assets/icon.png`), if you want an icon/logo served. `LOGO_PATH` is also drawn as the default watermark on generated quotes (matching OpenMiQ and OpenMiQ-Misskey's own convention) unless a request's own `watermark` field overrides it — see `GET /api/docs` for the full `POST /api/quote` schema |
+| `ICON_PATH` / `LOGO_PATH` | Local image paths served by `GET /api/branding/icon`/`logo` — a relative path is resolved against the project root, same as `.env` itself. **Unset = 404, on every deployment including the original one** — there's no fallback to the bundled `.github/assets/icon.png`/`logo.png`, since those identify the original OpenMiQ project and author specifically (see [License](#license) for the reuse restrictions on those files). Set these explicitly, even to that same path (`ICON_PATH=.github/assets/icon.png`), if you want an icon/logo served. `LOGO_PATH` is also drawn as the default watermark on generated quotes (matching OpenMiQ and OpenMiQ Misskey's own convention) unless a request's own `watermark` field overrides it — see `GET /api/docs` for the full `POST /api/quote` schema |
 | `REAPPLY_COOLDOWN_DAYS` | Days a denied/revoked user must wait before re-applying (default `1`) |
 | `MAX_API_KEYS_PER_USER` | Default max active API keys per user; an admin can override this per user (default `10`) |
 | `STORAGE_DRIVER` | Where `hosted: true` images are stored: `r2` (default) or `local` |

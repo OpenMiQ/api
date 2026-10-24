@@ -1,17 +1,17 @@
 # @makeitaquote/openmiq
 
-Generate "Make it a Quote" images through the [OpenMiQ-API](https://github.com/OpenMiQ/api).
+Generate "Make it a Quote" images through the [OpenMiQ API](https://github.com/OpenMiQ/api).
 
 [![npm](https://img.shields.io/npm/v/@makeitaquote/openmiq)](https://www.npmjs.com/package/@makeitaquote/openmiq) [![License](https://img.shields.io/npm/l/@makeitaquote/openmiq)](LICENSE) [![Node](https://img.shields.io/node/v/@makeitaquote/openmiq)](https://www.npmjs.com/package/@makeitaquote/openmiq)
 
-A thin, type-safe client for OpenMiQ-API's `/api/quote`, `/api/fakequote` and `/api/usage` endpoints — a fluent builder in the same style as its sibling packages [`@makeitaquote/voids`](https://www.npmjs.com/package/@makeitaquote/voids) and [`@makeitaquote/miqx`](https://www.npmjs.com/package/@makeitaquote/miqx).
+A thin, type-safe client for OpenMiQ API's `/api/quote`, `/api/fakequote` and `/api/usage` endpoints — a fluent builder in the same style as its sibling packages [`@makeitaquote/voids`](https://www.npmjs.com/package/@makeitaquote/voids) and [`@makeitaquote/miqx`](https://www.npmjs.com/package/@makeitaquote/miqx).
 
 ```ts
 import { OpenMiQ } from "@makeitaquote/openmiq";
 
 const image = await new OpenMiQ({
   apiKey: "openmiq_...",
-  baseUrl: "https://miq.example.com", // the OpenMiQ-API instance to talk to
+  baseUrl: "https://miq.example.com", // the OpenMiQ API instance to talk to
 })
   .setText("hello world")
   .setUsername("otoneko.")
@@ -20,7 +20,7 @@ const image = await new OpenMiQ({
   .toBuffer();
 ```
 
-Both `apiKey` and `baseUrl` are required. OpenMiQ-API is meant to be self-hosted — there's no single official instance this package could default to — so `baseUrl` always has to point at the instance you're actually using, and an API key is issued from that instance's own Web Console (see the [main repo's README](https://github.com/OpenMiQ/api#readme) for how to get one, or to self-host your own instance).
+Both `apiKey` and `baseUrl` are required. OpenMiQ API is meant to be self-hosted — there's no single official instance this package could default to — so `baseUrl` always has to point at the instance you're actually using, and an API key is issued from that instance's own Web Console (see the [main repo's README](https://github.com/OpenMiQ/api#readme) for how to get one, or to self-host your own instance).
 
 ## Install
 
@@ -91,4 +91,4 @@ otoneko. https://github.com/otnc
 
 ## License
 
-MIT — see [LICENSE](./LICENSE). This is a thin HTTP client and contains no code from OpenMiQ itself; whatever OpenMiQ-API instance you point `baseUrl` at is a separate deployment, licensed under AGPL-3.0-or-later with additional terms (see the [main repo](https://github.com/OpenMiQ/api)).
+MIT — see [LICENSE](./LICENSE). This is a thin HTTP client and contains no code from OpenMiQ itself; whatever OpenMiQ API instance you point `baseUrl` at is a separate deployment, licensed under AGPL-3.0-or-later with additional terms (see the [main repo](https://github.com/OpenMiQ/api)).

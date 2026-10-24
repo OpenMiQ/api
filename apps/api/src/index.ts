@@ -15,6 +15,6 @@ startHostedImageCleanup(env);
 serve(
   { fetch: app.fetch, port: env.API_PORT, hostname: env.API_HOST },
   (info) => {
-    console.log(`OpenMiQ-API listening on http://${env.API_HOST}:${info.port}`);
+    console.log(`OpenMiQ API listening on http://${env.API_HOST}:${info.port}`);
   },
 );

@@ -17,16 +17,16 @@
 </script>
 
 <svelte:head>
-  <title>OpenMiQ-API</title>
+  <title>OpenMiQ API</title>
   <meta name="description" content={tr.meta.description} />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="OpenMiQ-API" />
-  <meta property="og:title" content="OpenMiQ-API" />
+  <meta property="og:site_name" content="OpenMiQ API" />
+  <meta property="og:title" content="OpenMiQ API" />
   <meta property="og:description" content={tr.meta.description} />
   <meta property="og:url" content={ogUrl} />
   <meta property="og:image" content={ogImageUrl} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="OpenMiQ-API" />
+  <meta name="twitter:title" content="OpenMiQ API" />
   <meta name="twitter:description" content={tr.meta.description} />
   <meta name="twitter:image" content={ogImageUrl} />
 </svelte:head>
@@ -42,12 +42,12 @@
         {#if !logoFailed}
           <img
             src="/api/branding/logo"
-            alt="OpenMiQ-API"
+            alt="OpenMiQ API"
             class="h-6 max-w-40 object-contain"
             onerror={() => (logoFailed = true)}
           />
         {:else}
-          OpenMiQ-API
+          OpenMiQ API
         {/if}
       </a>
       <nav

@@ -1,7 +1,7 @@
 {
   "name": "@makeitaquote/openmiq",
   "version": "1.2.2",
-  "description": "Generate \"Make it a Quote\" images through the OpenMiQ-API.",
+  "description": "Generate \"Make it a Quote\" images through the OpenMiQ API.",
   "keywords": [
     "img",
     "image",

@@ -9,7 +9,7 @@ if (!apiKey) {
 const baseUrl = process.env.OPENMIQ_BASE_URL;
 if (!baseUrl) {
   throw new Error(
-    "Set OPENMIQ_BASE_URL to the OpenMiQ-API instance to talk to, e.g. https://miq.example.com",
+    "Set OPENMIQ_BASE_URL to the OpenMiQ API instance to talk to, e.g. https://miq.example.com",
   );
 }
 

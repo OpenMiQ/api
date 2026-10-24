@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src=".github/assets/icon.png" width="120" alt="OpenMiQ-API icon">
+<img src=".github/assets/icon.png" width="120" alt="OpenMiQ API icon">
 
 <br />
 
-<img src=".github/assets/logo.png" width="320" alt="OpenMiQ-API logo">
+<img src=".github/assets/logo.png" width="320" alt="OpenMiQ API logo">
 
 </div>
 
@@ -55,7 +55,7 @@ pnpm run dev           # Turborepo経由でapps/apiとapps/webを同時起動
       curl -X POST "https://discord.com/api/v10/channels/<CHANNEL_ID>/webhooks" \
         -H "Authorization: Bot <DISCORD_BOT_TOKEN>" \
         -H "Content-Type: application/json" \
-        -d '{"name": "OpenMiQ-API Review"}'
+        -d '{"name": "OpenMiQ API Review"}'
       ```
       レスポンスの`url`フィールドを`DISCORD_REVIEW_WEBHOOK_URL`に設定してください。**この手順は重要です**: チャンネルのUIから作成したWebhookは「application-owned」ではないため、そこから送るメッセージのApprove/DenyボタンはDiscord側で黙って無視されます — 埋め込み自体はエラー無く投稿されるので、ボタンが無い原因に気づきにくい落とし穴になります。Bot自身のAPI呼び出しで作成したWebhookのみが、実際に機能するインタラクティブボタンを送れます（[Discord公式ドキュメント](https://docs.discord.com/developers/resources/webhook)）。
    4. Webhookさえ作成してしまえば、以降はBotがそのサーバーに所属している必要はありません — Approve/Denyは（手順4で設定した）Interactions EndpointとこのWebhook自身のトークンだけで完結し、Botそのものは関与しません。
@@ -114,7 +114,7 @@ pnpm run pm2:stop
 | `PLAYGROUND_RATE_LIMIT_WINDOW_MS` / `PLAYGROUND_RATE_LIMIT_MAX` | 匿名（APIキー無し）の`/playground`リクエストにのみ適用される、IPアドレスごとの小さめな追加レート制限（`PLAYGROUND_SHARED_KEY_LIMIT`の総枠とは別枠）。1人の訪問者が共有の割り当てを使い尽くしてしまうのを防ぐ（既定`60000`/`5`） |
 | `APP_BASE_URL` | 本サービス自身の公開URL。OAuth2コールバックとInteractions Endpointに使用 |
 | `RATE_LIMIT_WINDOW_MS` / `RATE_LIMIT_MAX` | APIキーごとの既定レート制限のウィンドウ（ms）と上限リクエスト数（既定 `60000`/`60`） |
-| `ICON_PATH` / `LOGO_PATH` | `GET /api/branding/icon`/`logo`が配信するローカル画像パス。相対パスは`.env`自体と同じくプロジェクトルート基準で解決される。**未設定時は本家デプロイも含めて全デプロイで404**になる — 同梱の`.github/assets/icon.png`/`logo.png`への自動フォールバックは無い（これらの資産は本家OpenMiQプロジェクト・著作者を特定するものであるため。再利用に関する制約は[License](#license)参照）。アイコン・ロゴを表示したい場合は、同じパス（`ICON_PATH=.github/assets/icon.png`）を指すとしても明示的にこの変数を設定すること。`LOGO_PATH`は生成されるクォート画像の既定watermarkとしても使われる（OpenMiQ本体・OpenMiQ-Misskeyと同じ慣習）。リクエスト自体で`watermark`フィールドを指定した場合はそちらが優先される — `POST /api/quote`の詳細なスキーマは`GET /api/docs`参照 |
+| `ICON_PATH` / `LOGO_PATH` | `GET /api/branding/icon`/`logo`が配信するローカル画像パス。相対パスは`.env`自体と同じくプロジェクトルート基準で解決される。**未設定時は本家デプロイも含めて全デプロイで404**になる — 同梱の`.github/assets/icon.png`/`logo.png`への自動フォールバックは無い（これらの資産は本家OpenMiQプロジェクト・著作者を特定するものであるため。再利用に関する制約は[License](#license)参照）。アイコン・ロゴを表示したい場合は、同じパス（`ICON_PATH=.github/assets/icon.png`）を指すとしても明示的にこの変数を設定すること。`LOGO_PATH`は生成されるクォート画像の既定watermarkとしても使われる（OpenMiQ本体・OpenMiQ Misskeyと同じ慣習）。リクエスト自体で`watermark`フィールドを指定した場合はそちらが優先される — `POST /api/quote`の詳細なスキーマは`GET /api/docs`参照 |
 | `REAPPLY_COOLDOWN_DAYS` | 却下/取消されたユーザーが再申請できるようになるまでの日数（既定 `1`） |
 | `MAX_API_KEYS_PER_USER` | 1ユーザーが保持できる有効なAPIキー数の既定上限。管理者がユーザー個別に上書き可能（既定 `10`） |
 | `STORAGE_DRIVER` | `hosted: true`時の画像保存先: `r2`（既定）または`local` |

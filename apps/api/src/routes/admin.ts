@@ -38,8 +38,8 @@ async function notifyModerationAction(
   const reasonLine = reason ? ` Reason: ${reason}` : "";
   const content =
     action === "ban"
-      ? `Your OpenMiQ-API account has been banned by an administrator.${reasonLine}`
-      : `Your OpenMiQ-API access has been revoked by an administrator.${reasonLine} You can re-apply after the cooldown period at ${env.APP_BASE_URL}/console/apply.`;
+      ? `Your OpenMiQ API account has been banned by an administrator.${reasonLine}`
+      : `Your OpenMiQ API access has been revoked by an administrator.${reasonLine} You can re-apply after the cooldown period at ${env.APP_BASE_URL}/console/apply.`;
   await sendDirectMessage(env.DISCORD_BOT_TOKEN, discordId, content);
 }
 

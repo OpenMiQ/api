@@ -8,7 +8,7 @@ export interface OpenMiQApiErrorOptions extends MiQErrorOptions {
   endpoint: string;
 }
 
-/** The OpenMiQ-API refused or failed a request. */
+/** The OpenMiQ API refused or failed a request. */
 export class OpenMiQApiError extends MiQError {
   readonly status: number | undefined;
   readonly body: unknown;

@@ -62,7 +62,7 @@
 
   <Card.Root class="mx-auto max-w-md">
     <Card.Header>
-      <Card.Title>OpenMiQ-API</Card.Title>
+      <Card.Title>OpenMiQ API</Card.Title>
     </Card.Header>
     <Card.Content class="space-y-4">
       <a
@@ -106,7 +106,7 @@
           href="https://github.com/OpenMiQ/api"
           target="_blank"
           rel="noopener noreferrer"
-          class="hover:text-foreground underline">OpenMiQ-API</a
+          class="hover:text-foreground underline">OpenMiQ API</a
         > — this Web API, and the source you're looking at right now.
       </p>
       <p>

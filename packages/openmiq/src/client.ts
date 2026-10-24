@@ -44,7 +44,7 @@ import type {
 } from "./types.ts";
 
 /**
- * Builds a "Make it a Quote" image through an OpenMiQ-API instance.
+ * Builds a "Make it a Quote" image through an OpenMiQ API instance.
  *
  * ```ts
  * const image = await new OpenMiQ({
@@ -58,7 +58,7 @@ import type {
  *   .toBuffer();
  * ```
  *
- * `baseUrl` is required — OpenMiQ-API is meant to be self-hosted, so there is no single official instance this package could default to.
+ * `baseUrl` is required — OpenMiQ API is meant to be self-hosted, so there is no single official instance this package could default to.
  */
 export class OpenMiQ {
   #data: QuoteData = emptyQuote();

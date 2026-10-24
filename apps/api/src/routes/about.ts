@@ -31,7 +31,7 @@ const aboutRoute = createRoute({
 export function createAboutApp(env: Env) {
   return new OpenAPIHono().openapi(aboutRoute, (c) => {
     return c.json({
-      name: "OpenMiQ-API",
+      name: "OpenMiQ API",
       version: "0.1.0",
       basedOn: {
         name: "OpenMiQ",

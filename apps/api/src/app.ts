@@ -34,7 +34,7 @@ export function createApp(env: Env) {
     in: "header",
     name: "X-API-Key",
     description:
-      "An API key issued from your OpenMiQ-API instance's Web Console.",
+      "An API key issued from your OpenMiQ API instance's Web Console.",
   });
 
   app.route("/", createAboutApp(env));
@@ -64,7 +64,7 @@ export function createApp(env: Env) {
   app.doc("/api/docs/openapi.json", {
     openapi: "3.1.0",
     info: {
-      title: "OpenMiQ-API",
+      title: "OpenMiQ API",
       version: "0.1.0",
       description:
         "Based on OpenMiQ (https://github.com/OpenMiQ/discord-bot) by otoneko., with modifications for a Web API. Source: https://github.com/OpenMiQ/api",

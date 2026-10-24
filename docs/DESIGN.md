@@ -20,7 +20,7 @@
 - [ ] Web UI フッター・Swagger UI の info.description・`GET /api/about` (or `/api/credits`) API に同様の帰属表示を実装
 - [ ] `package.json` の `license` を `AGPL-3.0-or-later` に設定
 
-### 0.0 参考: OpenMiQ-Misskey（同一著者による先行の派生プロジェクト）
+### 0.0 参考: OpenMiQ Misskey（同一著者による先行の派生プロジェクト）
 
 [github.com/OpenMiQ/misskey-bot](https://github.com/OpenMiQ/misskey-bot)（Misskey版MiQ Bot、同じく otoneko. 氏の作）を確認したところ、`LICENSE` / `ADDITIONAL_TERMS.md` は **OpenMiQ本家と一字一句同一**（diff差分なし）だった。README側で以下の型が既に確立されている（本プロジェクトもこれに倣う）:
 
@@ -40,7 +40,7 @@
 
 ### 0.1 ブランド資産（アイコン・ロゴ）の扱い
 
-`ADDITIONAL_TERMS.md` §4 は本来「`.github/assets/` のアイコン・ロゴは無改変の同一プロジェクトを指す用途以外への流用を禁止」する条項だが、**本プロジェクトの利用者は OpenMiQ 本家のアイコン・ロゴの著作者本人**であるため、著作権者自身の許諾により OpenMiQ本家・OpenMiQ-Misskey と同様に、これらの資産を **`.github/assets/icon.png` / `logo.png` としてそのままリポジトリにコミットしてよい**。
+`ADDITIONAL_TERMS.md` §4 は本来「`.github/assets/` のアイコン・ロゴは無改変の同一プロジェクトを指す用途以外への流用を禁止」する条項だが、**本プロジェクトの利用者は OpenMiQ 本家のアイコン・ロゴの著作者本人**であるため、著作権者自身の許諾により OpenMiQ本家・OpenMiQ Misskey と同様に、これらの資産を **`.github/assets/icon.png` / `logo.png` としてそのままリポジトリにコミットしてよい**。
 
 - `ICON_PATH` / `LOGO_PATH` 環境変数（§11）を設定した場合のみ、`GET /api/branding/icon`/`logo`（§8.1）がそのローカル画像ファイルを配信する。
 - **実装時の補正（決定）**: 未設定時に`.github/assets/icon.png`/`logo.png`（OpenMiQ本家の資産）へ自動フォールバックする設計だったが撤回し、**未設定時は404を返す**（フォールバック無し）に変更した。理由: `ADDITIONAL_TERMS.md` §4はこれらの資産の使用を「無改変の同一プロジェクトを指す用途」に限定しており、自動フォールバックだと`ICON_PATH`/`LOGO_PATH`を設定し忘れた／知らずに使っているフォーク・改変版（別名を名乗るものを含む）にまで本家ブランドが既定で出てしまい、§2（改変版を本家と誤認させる表示の禁止）に抵触しかねない。**著作権者本人によるmiq.otnc.devデプロイを含め、アイコン・ロゴを表示したい場合は全デプロイで`ICON_PATH`/`LOGO_PATH`を明示的に`.github/assets/icon.png`/`logo.png`（またはそのコピー）に設定する**運用にする（docs/DEPLOYMENT.md参照）。
@@ -127,7 +127,7 @@ flowchart LR
 | 画像ストレージ（hosted URLモード） | **Cloudflare R2（既定・決定）** + ローカルディスク（`ImageStore`実装として用意はするが既定では使わない） | AWS S3, Backblaze B2, Cloudinary, Supabase Storage | 「無料で制限が緩いもの」という基準で比較: R2は無料枠が10GB/月のストレージと大きく、**エグレス（送信）課金が無い**のが画像配信用途で決定的に有利（S3・B2はストレージは安いがエグレス課金がある）。セルフホストである以上ローカル保存も選択肢として残すが、大量の画像を扱う前提であればディスク容量の限界に達しやすいため、**Cloudflare前提で運用する**方針とする（詳細§8.6） |
 | R2（S3互換）へのアクセス | **`aws4fetch`**（決定） | `@aws-sdk/client-s3` | `@aws-sdk/client-s3`はAWS SDK v3のフル依存ツリー（多数のサブパッケージ）を引き込み自己ホストには重い。`aws4fetch`はゼロ依存・数十KBでSigV4署名とfetchベースのリクエストのみを提供する軽量ライブラリで、R2のようなS3互換APIへのPUT/GET/DELETEには十分。プロジェクト全体の「軽量なものを選ぶ」方針とも合致する |
 | モノレポ管理 | **Turborepo** | Nx, 素のpnpmスクリプトのみ | pnpmワークスペースにタスクの依存関係解決・キャッシュを追加する薄いツール。Nxよりインストールサイズ・学習コストが小さく、pnpmモノレポでの採用事例が最も一般的 |
-| i18n（Web UI） | **自前の`Translations`オブジェクト**（OpenMiQ本家 `src/i18n/index.ts` と同じ手法、外部ライブラリ非依存） | svelte-i18n, Paraglide JS | 対応言語がEN/JAの2つのみで、OpenMiQ/OpenMiQ-Misskey本家が採用している「コードにコロケートしたTranslationsオブジェクト」を流用すれば十分薄く、依存も増えない。本家との開発体験の一貫性も優先（詳細§17） |
+| i18n（Web UI） | **自前の`Translations`オブジェクト**（OpenMiQ本家 `src/i18n/index.ts` と同じ手法、外部ライブラリ非依存） | svelte-i18n, Paraglide JS | 対応言語がEN/JAの2つのみで、OpenMiQ/OpenMiQ Misskey本家が採用している「コードにコロケートしたTranslationsオブジェクト」を流用すれば十分薄く、依存も増えない。本家との開発体験の一貫性も優先（詳細§17） |
 | フィンガープリント | FingerprintJS OSS版（クライアント側） | — | サーバーへ`visitorId`を送信し保存するのみ |
 | プロセス管理 | pm2（本家 `ecosystem.config.cjs` を踏襲） | systemd, Docker | 本家との運用手順の一貫性を優先。Dockerでの提供も別途検討可 |
 
@@ -416,7 +416,7 @@ Swagger UI: `GET /api/docs`（`@hono/swagger-ui`、`@hono/zod-openapi` が生成
 
 **実装時のスコープ調整（`theme`/`font`パラメータ）**: 本家Discord Botが持つ39種の命名済みカラーテーマ（`sunset`等）カタログはBot側の独自マッピングテーブルであり、`makeitaquote`本体のAPIではない。`makeitaquote` v12は`.setTheme({ background, avatar: { grayscale }, text: { weight, font }, layout })`という汎用オブジェクト形式（`background`はCSS色表記/hexを直接受け付ける）で表現するため、本APIの`theme`パラメータは**第一段階では任意のCSS色文字列（背景色）を直接渡す方式**とし、本家の39色ネームドカタログの移植（名前→色のマッピングテーブル）は別タスクとする。`font`パラメータは`makeitaquote`の`FONT_ALIASES`（`pop`, `sans`等）がそのまま使えるため追加実装不要。`options.color`は`avatar.grayscale`の反転、`options.bold`は`text.weight`にマッピングする。
 
-**`watermark`/`watermarkUrl`パラメータ（実装済み）**: OpenMiQ（Discordボット）・OpenMiQ-Misskeyの両方が持つ「`LOGO_PATH`を設定していればそのロゴ画像をwatermarkとして描画する」慣習を踏襲する。優先順位は`watermarkUrl`（画像URL） > `watermark`（テキスト、空文字列も含む） > サーバー側の`LOGO_PATH`（§11、`getLogoWatermark()`）— いずれも未指定なら`setWatermark()`自体を呼ばず`makeitaquote`自体の既定に委ねる。`watermarkUrl`は`new URL(...)`にした上で`makeitaquote`の`setWatermark(watermark: string | AvatarSource): this`に渡す（`AvatarSource`としてURLを渡すと画像として描画される）。
+**`watermark`/`watermarkUrl`パラメータ（実装済み）**: OpenMiQ（Discordボット）・OpenMiQ Misskeyの両方が持つ「`LOGO_PATH`を設定していればそのロゴ画像をwatermarkとして描画する」慣習を踏襲する。優先順位は`watermarkUrl`（画像URL） > `watermark`（テキスト、空文字列も含む） > サーバー側の`LOGO_PATH`（§11、`getLogoWatermark()`）— いずれも未指定なら`setWatermark()`自体を呼ばず`makeitaquote`自体の既定に委ねる。`watermarkUrl`は`new URL(...)`にした上で`makeitaquote`の`setWatermark(watermark: string | AvatarSource): this`に渡す（`AvatarSource`としてURLを渡すと画像として描画される）。
 
 **`POST /api/uploads`（実装済み）**: `authorAvatarUrl`/`watermarkUrl`に渡す画像を、外部URLではなく手元のファイルから用意したい場合の窓口。`multipart/form-data`で`file`フィールド（`image/png`・`image/jpeg`・`image/webp`・`image/gif`、5MBまで）を受け取り、`hosted: true`の出力画像と同じ`ImageStore`/`hosted_images`テーブル・`GET /api/images/:id`経由で配信する（`hosted_images`に`content_type`列を追加し、出力画像以外のContent-Typeも正しく返せるようにした）。認証・レート制限は`/api/quote`と同じ`apiKeyAuthMiddleware`を通す。保存期間は`HOSTED_IMAGE_TTL_HOURS`ではなく専用の`UPLOAD_TTL_HOURS`（既定1時間）に従う（§8.6）。
 
@@ -507,7 +507,7 @@ OpenMiQ-api/
 
 ## 11. 環境変数（実装済み）
 
-OpenMiQ-Misskey の `## Configuration` 節に倣い、Markdownテーブル形式で `.env.example` とREADMEに列挙する。**`apps/api`・`apps/web`は同じ1つの`.env`（プロジェクトルート直下）を共有する**（§14.2）。
+OpenMiQ Misskey の `## Configuration` 節に倣い、Markdownテーブル形式で `.env.example` とREADMEに列挙する。**`apps/api`・`apps/web`は同じ1つの`.env`（プロジェクトルート直下）を共有する**（§14.2）。
 
 | Variable | Purpose |
 | --- | --- |
@@ -538,9 +538,9 @@ OpenMiQ-Misskey の `## Configuration` 節に倣い、Markdownテーブル形式
 
 ---
 
-## 12. README雛形（OpenMiQ-Misskey踏襲）
+## 12. README雛形（OpenMiQ Misskey踏襲）
 
-OpenMiQ-Misskeyと同じ構成をWeb API向けに読み替えたテンプレート。実際のREADME作成時（Phase 0）はこれをベースにする。**`README.md`（英語）と`README-ja.md`（日本語、OpenMiQ本家と同じ命名）の2ファイルを作成し、内容は同一構成の対訳とする**（英語を正本としつつ、セットアップ手順など実務上重要な箇所は両方で必ず最新化する）。
+OpenMiQ Misskeyと同じ構成をWeb API向けに読み替えたテンプレート。実際のREADME作成時（Phase 0）はこれをベースにする。**`README.md`（英語）と`README-ja.md`（日本語、OpenMiQ本家と同じ命名）の2ファイルを作成し、内容は同一構成の対訳とする**（英語を正本としつつ、セットアップ手順など実務上重要な箇所は両方で必ず最新化する）。
 
 ```markdown
 <div align="center">
@@ -631,7 +631,7 @@ This project is licensed under the [GNU Affero General Public License v3.0 or la
 
 ## 13. 開発環境（Lint/Format/TypeScript）— OpenMiQ系との統一
 
-OpenMiQ / OpenMiQ-Misskey と同じ開発体験（コマンド・設定ファイルの型）で開発できるようにする。ベースはそのまま流用し、SvelteKit(`apps/web`)向けの拡張のみ追加する。
+OpenMiQ / OpenMiQ Misskey と同じ開発体験（コマンド・設定ファイルの型）で開発できるようにする。ベースはそのまま流用し、SvelteKit(`apps/web`)向けの拡張のみ追加する。
 
 ### 13.1 ESLint
 
@@ -815,7 +815,7 @@ sudo certbot --nginx -d miq.otnc.dev
 ## 15. npmラッパーパッケージ `@makeitaquote/openmiq`
 
 ### 15.1 目的・位置づけ
-モノレポ内 `packages/openmiq/` として実装し、npmに **`@makeitaquote/openmiq`** として公開する。第三者（あるいは自分自身の別プロジェクト）が、セルフホストされた任意のOpenMiQ-APIインスタンスの `/api/*` を、生のHTTP呼び出しではなく型安全なクライアントとして叩けるようにするための薄いラッパー。**実装時の補正**: 姉妹パッケージ（voids.top/miqx.jp）と異なり、本パッケージが対象とするOpenMiQ-APIには単一の「公式ホスト」という前提がない（各自がセルフホストする）ため、`baseUrl`にデフォルト値は持たせず必須パラメータとする（§15.3）。
+モノレポ内 `packages/openmiq/` として実装し、npmに **`@makeitaquote/openmiq`** として公開する。第三者（あるいは自分自身の別プロジェクト）が、セルフホストされた任意のOpenMiQ APIインスタンスの `/api/*` を、生のHTTP呼び出しではなく型安全なクライアントとして叩けるようにするための薄いラッパー。**実装時の補正**: 姉妹パッケージ（voids.top/miqx.jp）と異なり、本パッケージが対象とするOpenMiQ APIには単一の「公式ホスト」という前提がない（各自がセルフホストする）ため、`baseUrl`にデフォルト値は持たせず必須パラメータとする（§15.3）。
 
 ```ts
 import { OpenMiQ } from "@makeitaquote/openmiq";
@@ -847,7 +847,7 @@ const image = await new OpenMiQ({
 | エラー設計 | `XxxApiError extends MiQError`（`status`/`body`/`endpoint`を保持）+ `ValidationError`（`@makeitaquote/utils/errors`から再export）の2階層 |
 | エンドポイント定義 | `endpoints.ts`にパスを集約し、コメントで各エンドポイントの違い（ラウンドトリップ数・返り値の形）を明記。**実装時の補正**: voids/miqxの`endpoints.ts`はここに`DEFAULT_BASE_URL`も持つが、本パッケージには単一の既定ホストが無いため`DEFAULT_BASE_URL`自体を持たない（§15.1） |
 | ソースアダプタ | `setFromMessage()`(Discord) / `setFromNote()`(Misskey) / `setFromTweet()`(Twitter/X) を用意し、対象ライブラリ（discord.js等）への直接依存はせず**構造的型**（`MessageLike`/`NoteLike`/`TweetLike`）で受ける |
-| リクエスト/レスポンス整形の分離 | エンドポイント固有のリクエスト/レスポンス整形は`client.ts`から切り離した専用ファイルに閉じ込め、`client.ts`はそのモジュールが export する契約（`pathFor()`/`buildPayload()`/`parseHostedResult()`等）にのみ依存する。miqxの`src/v1.ts`と同じ分離パターンだが、**実装時の補正**: OpenMiQ-API自体にはAPIバージョンの概念が無い（miqxの`/v1/make`のような`/v1/`区切りが無い）ため、ファイル名は`v1.ts`ではなく`payload.ts`とした |
+| リクエスト/レスポンス整形の分離 | エンドポイント固有のリクエスト/レスポンス整形は`client.ts`から切り離した専用ファイルに閉じ込め、`client.ts`はそのモジュールが export する契約（`pathFor()`/`buildPayload()`/`parseHostedResult()`等）にのみ依存する。miqxの`src/v1.ts`と同じ分離パターンだが、**実装時の補正**: OpenMiQ API自体にはAPIバージョンの概念が無い（miqxの`/v1/make`のような`/v1/`区切りが無い）ため、ファイル名は`v1.ts`ではなく`payload.ts`とした |
 | パッケージング | ESM+CJS両対応の`exports`マップ（`tsdown`ビルド、`dist/index.{mjs,cjs}` + `.d.mts`/`.d.cts`）、`"type": "module"` |
 | Lint/Format | **Biome**（`biome.json`、`check`/`ci`/`migrate`スクリプト）— ルート直下のOpenMiQ本家系ESLint/Prettier（§13）とは別系統。npm公開用の小さな単体パッケージは軽量なBiome、モノレポ本体のアプリ群はOpenMiQ本家踏襲のESLint/Prettierという**サブプロジェクトごとの使い分け**を、姉妹パッケージの実際の運用にならって踏襲する |
 | テスト | vitest。各モジュールに対応する`*.test.ts`をsrc直下に併置 |
@@ -879,14 +879,14 @@ packages/openmiq/
 ```
 
 - クラス名は**必ず `OpenMiQ`**（`import { OpenMiQ } from "@makeitaquote/openmiq"`）。voids/miqxの`MiQ`エイリアスに相当する短縮名は、他パッケージと衝突しやすいため本パッケージではエイリアスを設けず`OpenMiQ`一本にする。
-- `OpenMiQOptions`: `{ apiKey: string; baseUrl: string; timeout?: number; retry?: number; signal?: AbortSignal }` — `apiKey`・`baseUrl`ともに必須（`apiKey`は自ホストのAPIキー認証必須エンドポイントを叩くため。`baseUrl`はvoids/miqxと異なり既定値を持たない — OpenMiQ-APIは各自がセルフホストするものであり、本パッケージが前提とすべき単一の「公式ホスト」が存在しないため、§15.1参照）。
-- `set*()`群（実装済み）: `setText` / `setUsername`（`authorName`にマップ — 太字の表示名の行） / `setAuthorUsername`（`authorUsername`にマップ — その下の小さな「@ユーザー名」の行、既定`null`で`authorName`と同じ文字列が両方の行に使われる） / `setAvatar`（URL文字列/`URL`、または生の画像バイト列） / `setTheme` / `setFont` / `setColor` / `setBold` / `setLayout('side'|'new')` / `setWatermark(string | AvatarSource | null)`（文字列はテキスト、URL/生バイト列は画像） / `setFake()`（`/api/fakequote`への切り替え） — §8.5 の実際の`/api/quote`スキーマ（`packages/shared/src/quote.ts`）に1:1対応させる。生の画像バイト列を渡した場合、その場ではbase64化などせず保持だけしておき、`toBuffer()`/`toURL()`実行時に`POST /api/uploads`へアップロードしてから返ってきたURLを`authorAvatarUrl`/`watermarkUrl`として送信する（往復が1回増える）。`setFromMessage`/`setFromNote`/`setFromTweet`は表示名の解決方法（ニックネーム/グローバル名優先など）に関わらず、必ずアカウント本来のハンドル（Discordの`author.username`、Misskeyノートの`user.username`/`user.host`、ツイート投稿者の`username`）を`authorUsername`に設定する。実装時の補正: `setFlip`に対応するフィールドは実際の`/api/quote`スキーマに存在しないため実装していない。`setWatermark`は`null`（既定）でサーバー側のデフォルト（`LOGO_PATH`が設定されていればそのロゴ画像、無ければmakeitaquote自体の既定）に委ね、文字列（空文字列を含む）を渡すとそれで上書きする — OpenMiQ本体（Discordボット）・OpenMiQ-Misskeyの「`LOGO_PATH`をwatermarkに使う」慣習をAPI越しに再現したもの。
+- `OpenMiQOptions`: `{ apiKey: string; baseUrl: string; timeout?: number; retry?: number; signal?: AbortSignal }` — `apiKey`・`baseUrl`ともに必須（`apiKey`は自ホストのAPIキー認証必須エンドポイントを叩くため。`baseUrl`はvoids/miqxと異なり既定値を持たない — OpenMiQ APIは各自がセルフホストするものであり、本パッケージが前提とすべき単一の「公式ホスト」が存在しないため、§15.1参照）。
+- `set*()`群（実装済み）: `setText` / `setUsername`（`authorName`にマップ — 太字の表示名の行） / `setAuthorUsername`（`authorUsername`にマップ — その下の小さな「@ユーザー名」の行、既定`null`で`authorName`と同じ文字列が両方の行に使われる） / `setAvatar`（URL文字列/`URL`、または生の画像バイト列） / `setTheme` / `setFont` / `setColor` / `setBold` / `setLayout('side'|'new')` / `setWatermark(string | AvatarSource | null)`（文字列はテキスト、URL/生バイト列は画像） / `setFake()`（`/api/fakequote`への切り替え） — §8.5 の実際の`/api/quote`スキーマ（`packages/shared/src/quote.ts`）に1:1対応させる。生の画像バイト列を渡した場合、その場ではbase64化などせず保持だけしておき、`toBuffer()`/`toURL()`実行時に`POST /api/uploads`へアップロードしてから返ってきたURLを`authorAvatarUrl`/`watermarkUrl`として送信する（往復が1回増える）。`setFromMessage`/`setFromNote`/`setFromTweet`は表示名の解決方法（ニックネーム/グローバル名優先など）に関わらず、必ずアカウント本来のハンドル（Discordの`author.username`、Misskeyノートの`user.username`/`user.host`、ツイート投稿者の`username`）を`authorUsername`に設定する。実装時の補正: `setFlip`に対応するフィールドは実際の`/api/quote`スキーマに存在しないため実装していない。`setWatermark`は`null`（既定）でサーバー側のデフォルト（`LOGO_PATH`が設定されていればそのロゴ画像、無ければmakeitaquote自体の既定）に委ね、文字列（空文字列を含む）を渡すとそれで上書きする — OpenMiQ本体（Discordボット）・OpenMiQ Misskeyの「`LOGO_PATH`をwatermarkに使う」慣習をAPI越しに再現したもの。
 - 出力メソッド: `toBuffer()`（既定、1ラウンドトリップでバイナリ）/ `toURL()`（`hosted: true`で生成し`/api/images/:id`のURLを返す、§8.5参照）— Voidsの`toURL()`/`toBuffer({hosted})`と同じ非対称設計を踏襲。
 - エラー: `OpenMiQApiError extends MiQError`（`status`/`body`/`endpoint`）、`ValidationError`は`@makeitaquote/utils/errors`から再export。
 - `GET /api/usage`を叩く `getUsage()` メソッドも用意し、Web Console同様にライブラリ利用者もレート制限状況を取得できるようにする（§5.4との対応）。
 
 ### 15.4 ライセンスに関する補足（MIT採用の理由）
-`apps/api`・`apps/web`（サーバー本体）はOpenMiQの派生としてAGPL-3.0-or-later + `ADDITIONAL_TERMS.md`を継承するが、`packages/openmiq`はHTTP経由でそのAPIを叩くだけの薄いクライアントであり、OpenMiQ由来のコード（レンダリングロジック等）を一切含まない。姉妹パッケージ`@makeitaquote/voids`/`@makeitaquote/miqx`も同様に「対象APIのコードは含まない薄いクライアント」としてMITで公開されているため、同じ整理に倣いMITとする。ただし利用者が`baseUrl`に指定する先のOpenMiQ-APIインスタンス自体は、いずれもAGPL-3.0-or-later + 追加条項のもとで運用されるソフトウェアである点に変わりはない。
+`apps/api`・`apps/web`（サーバー本体）はOpenMiQの派生としてAGPL-3.0-or-later + `ADDITIONAL_TERMS.md`を継承するが、`packages/openmiq`はHTTP経由でそのAPIを叩くだけの薄いクライアントであり、OpenMiQ由来のコード（レンダリングロジック等）を一切含まない。姉妹パッケージ`@makeitaquote/voids`/`@makeitaquote/miqx`も同様に「対象APIのコードは含まない薄いクライアント」としてMITで公開されているため、同じ整理に倣いMITとする。ただし利用者が`baseUrl`に指定する先のOpenMiQ APIインスタンス自体は、いずれもAGPL-3.0-or-later + 追加条項のもとで運用されるソフトウェアである点に変わりはない。
 
 ---
 
@@ -927,7 +927,7 @@ packages/openmiq/
 
 - **対応言語**: 英語(en) / 日本語(ja) の2言語。**デフォルトは英語**。
 - **判定順序**: ①Cookie等に保存済みのユーザーの明示的な選択 → ②ブラウザの`Accept-Language`ヘッダ（SSR時）/ `navigator.language`（CSR時）に`ja`系ロケールが含まれるか → ③既定の`en`にフォールバック。切り替えUIも用意し、選択結果はCookie（またはlocalStorage）に保存して次回以降も維持する。**実装済み**: ヘッダーの言語メニュー（テーマ切替の隣、ログイン有無に関わらず常時表示）から選択する。`GET /locale/:code`（`apps/web`側の素の`+server.ts`、APIサーバーではなくWeb側）が`openmiq_locale`Cookieを設定し、`redirect`クエリで渡された元のページへ303リダイレクトする——ログイン/ログアウトと同じ「素のリンク/フォームによるフルページ遷移」方式で、クライアント側JSのfetch呼び出しには依存しない。
-- **実装方式（決定）**: 外部i18nライブラリは導入せず、OpenMiQ/OpenMiQ-Misskey本家の`src/i18n/index.ts`と同じ手法——**コードにコロケートした`Translations`オブジェクト**（`{ en: {...}, ja: {...} }`）を`apps/web/src/lib/i18n/`にまとめ、Svelteの`writable`ストアで現在ロケールを保持する——を踏襲する（§3.1参照）。2言語のみであれば十分に薄く、本家との開発体験も統一できるため。
+- **実装方式（決定）**: 外部i18nライブラリは導入せず、OpenMiQ/OpenMiQ Misskey本家の`src/i18n/index.ts`と同じ手法——**コードにコロケートした`Translations`オブジェクト**（`{ en: {...}, ja: {...} }`）を`apps/web/src/lib/i18n/`にまとめ、Svelteの`writable`ストアで現在ロケールを保持する——を踏襲する（§3.1参照）。2言語のみであれば十分に薄く、本家との開発体験も統一できるため。
 - **サーバー側**: `GET /api/legal/terms`等、言語別コンテンツを返すAPIは`?lang=en|ja`クエリ（省略時`en`）で切り替える。Discord埋め込み（§6.1）は運用者（管理者）向けなので日本語固定でよい。
 
 ---
