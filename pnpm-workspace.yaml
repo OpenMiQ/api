@@ -11,3 +11,4 @@ minimumReleaseAgeExclude:
   - eslint@10.10.0
   - hono@4.13.7
   - "@lucide/svelte@1.41.0"
+  - "@makeitaquote/utils@1.2.1"

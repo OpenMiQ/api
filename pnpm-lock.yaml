@@ -201,8 +201,8 @@ importers:
   packages/openmiq:
     dependencies:
       '@makeitaquote/utils':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.2.1
+        version: 1.2.1
     devDependencies:
       '@biomejs/biome':
         specifier: ^2.5.12
@@ -912,6 +912,10 @@ packages:
 
   '@makeitaquote/utils@1.2.0':
     resolution: {integrity: sha512-ksuXlzkcwSA/4SqSlobMSk0s5TReHVG6HZqcEVWrp3tCAZcE8v0QKElq0g+ED/iCIcDjeI5S8S4lGpUXXz95Gg==}
+    engines: {node: '>=18'}
+
+  '@makeitaquote/utils@1.2.1':
+    resolution: {integrity: sha512-NDkXk5TGMWoUgQrjUnpR4PBf8a62W4jxaLkyDvTTMUR4tlWrQ0gL2aKxf4a4adN/npPKeL1ZmcP1w57+f2tTGA==}
     engines: {node: '>=18'}
 
   '@misskey-dev/emoji-data@17.0.0':
@@ -3681,6 +3685,13 @@ snapshots:
       svelte: 5.57.0(@typescript-eslint/types@8.69.0)
 
   '@makeitaquote/utils@1.2.0':
+    dependencies:
+      discomd: 1.2.0
+      markdown-it: 15.0.1
+      mfm-js: 0.26.0
+      ofetch: 1.5.1
+
+  '@makeitaquote/utils@1.2.1':
     dependencies:
       discomd: 1.2.0
       markdown-it: 15.0.1
