@@ -67,7 +67,7 @@ export function createApp(env: Env) {
       title: "OpenMiQ-API",
       version: "0.1.0",
       description:
-        "Based on OpenMiQ (https://github.com/otnc/OpenMiQ) by otoneko., with modifications for a Web API. Source: https://github.com/otnc/OpenMiQ-API",
+        "Based on OpenMiQ (https://github.com/OpenMiQ/discord-bot) by otoneko., with modifications for a Web API. Source: https://github.com/OpenMiQ/api",
     },
   });
   app.get("/api/docs", swaggerUI({ url: "/api/docs/openapi.json" }));

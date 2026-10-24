@@ -51,7 +51,7 @@
           class="text-primary font-medium underline">npm</a
         >
         <a
-          href="https://github.com/otnc/OpenMiQ-API/tree/main/packages/openmiq"
+          href="https://github.com/OpenMiQ/api/tree/main/packages/openmiq"
           target="_blank"
           rel="noopener noreferrer"
           class="text-primary font-medium underline">GitHub</a
@@ -103,7 +103,7 @@
     <Card.Content class="text-muted-foreground space-y-2 text-sm">
       <p>
         <a
-          href="https://github.com/otnc/OpenMiQ-API"
+          href="https://github.com/OpenMiQ/api"
           target="_blank"
           rel="noopener noreferrer"
           class="hover:text-foreground underline">OpenMiQ-API</a
@@ -111,7 +111,7 @@
       </p>
       <p>
         <a
-          href="https://github.com/otnc/OpenMiQ"
+          href="https://github.com/OpenMiQ/discord-bot"
           target="_blank"
           rel="noopener noreferrer"
           class="hover:text-foreground underline">OpenMiQ</a
@@ -121,7 +121,7 @@
       </p>
       <p>
         <a
-          href="https://github.com/otnc/makeitaquote"
+          href="https://github.com/OpenMiQ/makeitaquote"
           target="_blank"
           rel="noopener noreferrer"
           class="hover:text-foreground underline">makeitaquote</a

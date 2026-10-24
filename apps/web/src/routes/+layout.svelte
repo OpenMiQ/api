@@ -100,7 +100,7 @@
           class="hover:text-foreground">{tr.common.apiDocs}</a
         >
         <a
-          href="https://github.com/otnc/OpenMiQ-API"
+          href="https://github.com/OpenMiQ/api"
           target="_blank"
           rel="noopener noreferrer"
           class="hover:text-foreground">{tr.footer.sourceCode}</a

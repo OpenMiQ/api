@@ -12,7 +12,7 @@
 
 _[English](./README.md)_
 
-メッセージをクォート画像に変換する、セルフホスト型の**Web API**です。Discord Bot版の[OpenMiQ](https://github.com/otnc/OpenMiQ)をもとに、Web API向けに改変しています — 詳細は[Credits](#credits)を参照してください。
+メッセージをクォート画像に変換する、セルフホスト型の**Web API**です。Discord Bot版の[OpenMiQ](https://github.com/OpenMiQ/discord-bot)をもとに、Web API向けに改変しています — 詳細は[Credits](#credits)を参照してください。
 
 ## Discord Bot版との違い
 
@@ -33,8 +33,8 @@ _[English](./README.md)_
 ### クイックスタート
 
 ```bash
-git clone https://github.com/otnc/OpenMiQ-API.git
-cd OpenMiQ-API
+git clone https://github.com/OpenMiQ/api.git
+cd api
 pnpm install
 cp .env.example .env   # 値を埋める。詳細は下記Configurationを参照
 pnpm run db:migrate    # SQLiteスキーマを適用
@@ -133,8 +133,8 @@ otoneko. https://github.com/otnc
 
 ## Credits
 
-- **OpenMiQ** — https://github.com/otnc/OpenMiQ — 本APIはDiscord Bot「OpenMiQ」（**otoneko.**作）をもとに、Web APIとして公開するための改変を加えたものです。
-- **makeitaquote** — https://github.com/otnc/makeitaquote — 本APIが画像生成に使用しているライブラリです。
+- **OpenMiQ** — https://github.com/OpenMiQ/discord-bot — 本APIはDiscord Bot「OpenMiQ」（**otoneko.**作）をもとに、Web APIとして公開するための改変を加えたものです。
+- **makeitaquote** — https://github.com/OpenMiQ/makeitaquote — 本APIが画像生成に使用しているライブラリです。
 - Make it a Quote (Twitter) — https://twitter.com/MakeItAQuote
 - Make it a Quote (Discord/Misskey/Bluesky) — https://miq.moe/
 - アイコン・ロゴ: 原作者（OpenMiQの著作者でもあります）の許諾のもと使用しています — 詳細は[ADDITIONAL_TERMS.md](./ADDITIONAL_TERMS.md#4-brand-assets-githubassets)を参照してください。
@@ -144,7 +144,7 @@ otoneko. https://github.com/otnc
 本プロジェクトは[GNU Affero General Public License v3.0 or later](./LICENSE)のもとでライセンスされており、OpenMiQ本家が付している[追加条項](./ADDITIONAL_TERMS.md)（AGPL-3.0 第7条）をそのまま引き継いでいます — 本APIはOpenMiQの改変版であるため、これらの条項は無改変のまま維持されます。
 
 - **SPDX:** `AGPL-3.0-or-later`（AGPL-3.0 第7条に基づく追加条項付き）
-- 本APIの改変版を配布または運用する場合、同じ追加条項により、改変版のソースをAGPL-3.0のもとで公開し、OpenMiQ（本家リポジトリURL: https://github.com/otnc/OpenMiQ）への帰属表示を[ADDITIONAL_TERMS.md](./ADDITIONAL_TERMS.md)に記載の方法で行う必要があります。
+- 本APIの改変版を配布または運用する場合、同じ追加条項により、改変版のソースをAGPL-3.0のもとで公開し、OpenMiQ(本家リポジトリURL: https://github.com/OpenMiQ/discord-bot) への帰属表示を[ADDITIONAL_TERMS.md](./ADDITIONAL_TERMS.md)に記載の方法で行う必要があります。
 
 ## クライアントライブラリ
 

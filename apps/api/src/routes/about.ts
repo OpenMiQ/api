@@ -36,9 +36,9 @@ export function createAboutApp(env: Env) {
       basedOn: {
         name: "OpenMiQ",
         author: "otoneko.",
-        url: "https://github.com/otnc/OpenMiQ",
+        url: "https://github.com/OpenMiQ/discord-bot",
       },
-      sourceUrl: "https://github.com/otnc/OpenMiQ-API",
+      sourceUrl: "https://github.com/OpenMiQ/api",
       discordInviteUrl: env.DISCORD_INVITE_URL ?? null,
       playgroundSharedKeyAvailable: env.PLAYGROUND_SHARED_KEY_LIMIT > 0,
     });
