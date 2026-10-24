@@ -12,4 +12,4 @@ minimumReleaseAgeExclude:
   - hono@4.13.7
   - "@lucide/svelte@1.41.0"
   - "@makeitaquote/utils@1.2.1"
-  - makeitaquote@12.1.3
+  - makeitaquote@12.1.5
